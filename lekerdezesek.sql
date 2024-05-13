@@ -1,6 +1,6 @@
 -- 1. lekérdezés
 
-select t.nev
+select t.nev as 'Tanuló neve'
 from oktatok ok join tanulok t on ok.id = t.oktato_id 
 	join orarend ora on ora.tanulo_id= t.id 
     join kategoriak k on k.kat_id=ok.kategoria_id 
@@ -22,3 +22,10 @@ FROM kategoriak k JOIN jarmuvek j ON k.kat_id = j.kategoria_id
 GROUP BY ROLLUP(k.rovidites, o.nev)
 
 -- 3. lekérdezés
+
+select iif(n.nap is null, 'Összesen', n.nap) as 'Nap',
+		count(*) as 'Órák száma'
+from orarend ora JOIN tanulok t on ora.tanulo_id = t.id
+	JOIN oktatok ok ON ok.id=t.oktato_id join napok n on n.id = ora.nap_id
+GROUP BY rollup (n.nap)
+order BY COUNT(*) DESC 
