@@ -16,8 +16,8 @@ SELECT IIF(GROUPING_ID(k.rovidites) = 1, 'Végösszeg', CAST(k.rovidites as nvar
          ELSE o.nev 
        END AS 'Oktató neve',
        COUNT(*) AS 'Tanulók száma'
-FROM jarmuvek j JOIN oktatok o on j.jarmu_id = o.jarmu_id
-		JOIN kategoriak k ON j.kategoria_id = k.kat_id
+FROM kategoriak k JOIN jarmuvek j ON k.kat_id = j.kategoria_id
+		JOIN oktatok o on j.jarmu_id = o.jarmu_id
                 JOIN tanulok t ON o.id = t.oktato_id
 GROUP BY ROLLUP(k.rovidites, o.nev)
 
