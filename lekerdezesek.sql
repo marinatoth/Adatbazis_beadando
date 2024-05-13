@@ -4,8 +4,8 @@ select t.nev as 'Tanuló neve'
 from  jarmuvek j join oktatok ok on j.jarmu_id = ok.jarmu_id 
 	join tanulok t on ok.id = t.oktato_id 
 	join orarend ora on ora.tanulo_id= t.id 
-    join kategoriak k on k.kat_id=j.kategoria_id 
-    join napok n on n.id=ora.nap_id
+    	join kategoriak k on k.kat_id=j.kategoria_id 
+    	join napok n on n.id=ora.nap_id
 where n.nap = 'Hétfő' and k.rovidites = 'B'
 
 -- 2. lekérdezés
