@@ -1,6 +1,8 @@
 # Adatbazis_beadando
-Guys ez oriasi lesz
-Marina, Reka, Blanka
+Csapattagok:
+- Füzi Blanka
+- Tóth Marina
+- Vinkler Réka
 
 # Adatbazis
 Az adatbazisunk egy autosiskola adatait dolgozza fel.
