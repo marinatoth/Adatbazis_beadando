@@ -4,13 +4,19 @@ Csapattagok:
 - Tóth Marina
 - Vinkler Réka
 
-# Adatbazis
+# Adatbázis
 Az adatbazisunk egy autósiskola adatait dolgozza fel. Hét különböző táblát foglal magában: orarend, tanulok, oktatok, napok, savok, kategoriak, jarmuvek.
 
-# Tablak
+# Táblák
 Az adatbazis táblák adatait AI, a saját fejünk, illetve excel táblázatkezelő segítségével generáltuk és állítottuk össze.
-Az adatbazis_keszitese.sql fajlban van a kod, amivel az online sql szerkesztőbe tudtunk egy adatbázist csinálni.
-Innen keszultek a lekerdezesek is.
+Az adatbazis_keszitese.sql fájlban van a kód, amivel az online sql szerkesztőbe tudtunk egy adatbázist csinálni.
+Innen készültek a lekérdezesek is.
+1. Lekérdezés:
+2. Lekérdezés:
+3. Lekérdezés:
+4. Lekérdezés:
+5. Lekérdezés:
+6. Lekérdezés:
 
 # The End
 Guys ez oriasi lett
