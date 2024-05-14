@@ -11,9 +11,9 @@ Az adatbazisunk egy autósiskola adatait dolgozza fel. Hét különböző tábl�
 Az adatbazis táblák adatait AI, a saját fejünk, illetve excel táblázatkezelő segítségével generáltuk és állítottuk össze.
 Az adatbazis_keszitese.sql fájlban van a kód, amivel az online sql szerkesztőbe tudtunk egy adatbázist csinálni.
 Innen készültek a lekérdezesek is.
-1. Lekérdezés: Azok a atnulók nevei, akik hétfőn tanulnak 'B' kategóriás jogosítványt szerezni.
+1. Lekérdezés: Azok a tabulók nevei, akik hétfőn és 'B' kategóriás jogosítvány tanulnak.
 2. Lekérdezés:
-3. Lekérdezés: A héten napi bontásban, illetve összesen hány órát tartanak.
+3. Lekérdezés: A héten napi bontásban, illetve összesen hány órát szolgáltat az autósiskola.
 4. Lekérdezés:
 5. Lekérdezés:
 6. Lekérdezés:
