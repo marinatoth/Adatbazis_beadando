@@ -12,7 +12,7 @@ Az adatbazis táblák adatait AI, a saját fejünk, illetve excel táblázatkeze
 Az adatbazis_keszitese.sql fájlban van a kód, amivel az online sql szerkesztőbe tudtunk egy adatbázist csinálni.
 Innen készültek a lekérdezesek is.
 1. Lekérdezés: Azok a tabulók nevei, akik hétfőn és 'B' kategóriás jogosítvány tanulnak.
-2. Lekérdezés:
+2. Lekérdezés: Hány diákja van egy oktatónak és milyen katergóriát tanítanak.
 3. Lekérdezés: A héten napi bontásban, illetve összesen hány órát szolgáltat az autósiskola.
 4. Lekérdezés:
 5. Lekérdezés:
