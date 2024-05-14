@@ -1,12 +1,67 @@
---- 13-05-2024 20:24:09
---- MS SQL
+CREATE TABLE [kategoriak] (
+  [kat_id] [int] NOT NULL,
+  [rovidites] [varchar](50),
+  [megnevezes] [varchar](50),
+  [korhatar] [int],
+  [oradij] [int]
+);
+
+INSERT INTO [kategoriak] ([kat_id],[rovidites],[megnevezes],[korhatar],[oradij])
+VALUES
+(1,'AM','Segédmotoros kerékpár',16,7000),
+(2,'A1','Könnyű motorkerékpár',16,8000),
+(3,'B1','Négykerekű motorkerékpár',16,8000),
+(4,'A2','Motorkerékpár',18,8000),
+(5,'B','Személygépkocsi',18,10000),
+(6,'C1','Közepes méretű gépjármű',18,21000),
+(7,'A','Nehéz motorkerékpár',20,8000),
+(8,'C','Nagyméretű gépjármű',21,23000),
+(9,'D1','Kisbusz',21,21000),
+(10,'D','Busz',24,25000);
+
+------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE [oktatok] (
+  [id] [int] NOT NULL,
+  [nev] [varchar](50),
+  [szul_dat] [varchar](50),
+  [nem] [varchar](50),
+  [email] [varchar](50),
+  [jarmu_id] [int] NOT NULL
+);
+
+INSERT INTO [oktatok] ([id],[nev],[szul_dat],[nem],[email],[jarmu_id])
+VALUES
+(1,'Christophorus Halt','09/01/1990','F','chalt0@mozilla.com',10),
+(2,'Idalia Growcock','02/23/1977','F','igrowcock1@dmoz.org',4),
+(3,'Dyann Cressey','05/05/1977','M','dcressey2@livejournal.com',11),
+(4,'Ruthann Morsey','10/15/1984','F','rmorsey3@earthlink.net',5),
+(5,'Augie Clawley','08/08/1988','M','aclawley4@yelp.com',1),
+(6,'Matti Bridywater','11/09/1991','F','mbridywater5@japanpost.jp',12),
+(7,'Violet Steart','08/18/1985','F','vsteart6@nih.gov',26),
+(8,'Goldy Ilive','08/09/1986','M','gilive7@miitbeian.gov.cn',8),
+(9,'Shirl Lunam','04/17/1995','M','slunam8@intel.com',22),
+(10,'Rockwell Filipchikov','03/23/1990','F','rfilipchikov9@feedburner.com',13),
+(11,'Sullivan Domelaw','03/16/1988','F','sdomelawa@bing.com',24),
+(12,'Tallie Beckensall','11/19/1975','M','tbeckensallb@tiny.cc',30),
+(13,'Michaela Leed','08/29/1986','M','mleedc@vimeo.com',25),
+(14,'Helaina Bridgwater','05/25/1987','M','hbridgwaterd@constantcontact.com',31),
+(15,'Elisha Fletcher','01/26/1993','M','efletchere@fotki.com',17),
+(16,'Ollie Surman-Wells','02/12/1996','M','osurmanwellsf@studiopress.com',15),
+(17,'Darrel Gent','08/09/1970','M','dgentg@slate.com',16),
+(18,'Maitilde Cains','01/19/1995','M','mcainsh@slashdot.org',9),
+(19,'Giana Hrynczyk','01/08/1983','F','ghrynczyki@hatena.ne.jp',29),
+(20,'Joceline Gallety','10/29/1991','F','jgalletyj@usda.gov',18);
+
+------------------------------------------------------------------------------------------------------------------
+
 CREATE TABLE [tanulok] (
   [id] [int] NOT NULL,
   [nev] [varchar](50),
-  [szul_dat] [date],
+  [szul_dat] [varchar](50),
   [nem] [varchar](50),
   [email] [varchar](50),
-  [oktato_id] [int]
+  [oktato_id] [int] NOT NULL
 );
 
 INSERT INTO [tanulok] ([id],[nev],[szul_dat],[nem],[email],[oktato_id])
@@ -162,8 +217,8 @@ VALUES
 (149,'Lynelle de Tocqueville','02/20/1998','F','lde44@scribd.com',10),
 (150,'Ag Kighly','05/10/1989','F','akighly45@virginia.edu',19);
 
---- 13-05-2024 20:35:23
---- MS SQL
+------------------------------------------------------------------------------------------------------------------
+
 CREATE TABLE [jarmuvek] (
   [jarmu_id] [int] NOT NULL,
   [rendszam] [varchar](50),
@@ -207,30 +262,8 @@ VALUES
 (30,'KMJ131','Mercedes','Citaro','2023/01/31',10),
 (31,'KMJ132','Mercedes','Citaro','2023/02/01',10);
 
---- 13-05-2024 20:36:22
---- MS SQL
-CREATE TABLE [kategoriak] (
-  [kat_id] [int] NOT NULL,
-  [rovidites] [varchar](50),
-  [megnevezes] [varchar](50),
-  [korhatar] [int]
-);
+------------------------------------------------------------------------------------------------------------------
 
-INSERT INTO [kategoriak] ([kat_id],[rovidites],[megnevezes],[korhatar])
-VALUES
-(1,'AM','Segédmotoros kerékpár',16),
-(2,'A1','Könnyű motorkerékpár',16),
-(3,'B1','Négykerekű motorkerékpár',16),
-(4,'A2','Motorkerékpár',18),
-(5,'B','Személygépkocsi',18),
-(6,'C1','Közepes méretű gépjármű',18),
-(7,'A','Nehéz motorkerékpár',20),
-(8,'C','Nagyméretű gépjármű',21),
-(9,'D1','Kisbusz',21),
-(10,'D','Busz',24);
-
---- 13-05-2024 20:36:44
---- MS SQL
 CREATE TABLE [napok] (
   [id] [int] NOT NULL,
   [nap] [varchar](50)
@@ -246,42 +279,8 @@ VALUES
 (6,'Szombat'),
 (7,'Vasárnap');
 
---- 13-05-2024 20:37:24
---- MS SQL
-CREATE TABLE [oktatok] (
-  [id] [int] NOT NULL,
-  [nev] [varchar](50),
-  [szul_dat] [date],
-  [nem] [varchar](50),
-  [email] [varchar](50),
-  [jarmu_id] [int] NOT NULL
-);
+------------------------------------------------------------------------------------------------------------------
 
-INSERT INTO [oktatok] ([id],[nev],[szul_dat],[nem],[email],[jarmu_id])
-VALUES
-(1,'Christophorus Halt','09/01/1990','F','chalt0@mozilla.com',10),
-(2,'Idalia Growcock','02/23/1977','F','igrowcock1@dmoz.org',4),
-(3,'Dyann Cressey','05/05/1977','M','dcressey2@livejournal.com',11),
-(4,'Ruthann Morsey','10/15/1984','F','rmorsey3@earthlink.net',5),
-(5,'Augie Clawley','08/08/1988','M','aclawley4@yelp.com',1),
-(6,'Matti Bridywater','11/09/1991','F','mbridywater5@japanpost.jp',12),
-(7,'Violet Steart','08/18/1985','F','vsteart6@nih.gov',26),
-(8,'Goldy Ilive','08/09/1986','M','gilive7@miitbeian.gov.cn',8),
-(9,'Shirl Lunam','04/17/1995','M','slunam8@intel.com',22),
-(10,'Rockwell Filipchikov','03/23/1990','F','rfilipchikov9@feedburner.com',13),
-(11,'Sullivan Domelaw','03/16/1988','F','sdomelawa@bing.com',24),
-(12,'Tallie Beckensall','11/19/1975','M','tbeckensallb@tiny.cc',30),
-(13,'Michaela Leed','08/29/1986','M','mleedc@vimeo.com',25),
-(14,'Helaina Bridgwater','05/25/1987','M','hbridgwaterd@constantcontact.com',31),
-(15,'Elisha Fletcher','01/26/1993','M','efletchere@fotki.com',17),
-(16,'Ollie Surman-Wells','02/12/1996','M','osurmanwellsf@studiopress.com',15),
-(17,'Darrel Gent','08/09/1970','M','dgentg@slate.com',16),
-(18,'Maitilde Cains','01/19/1995','M','mcainsh@slashdot.org',9),
-(19,'Giana Hrynczyk','01/08/1983','F','ghrynczyki@hatena.ne.jp',29),
-(20,'Joceline Gallety','10/29/1991','F','jgalletyj@usda.gov',18);
-
---- 13-05-2024 20:37:49
---- MS SQL
 CREATE TABLE [savok] (
   [id] [int] NOT NULL,
   [sav] [varchar](50)
@@ -302,8 +301,8 @@ VALUES
 (11,'18:00-19:00'),
 (12,'19:00-20:00');
 
---- 13-05-2024 20:38:36
---- MS SQL
+------------------------------------------------------------------------------------------------------------------
+
 CREATE TABLE [orarend] (
   [id] [int] NOT NULL,
   [tanulo_id] [int] NOT NULL,
