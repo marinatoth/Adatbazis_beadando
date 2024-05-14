@@ -31,3 +31,15 @@ from orarend ora JOIN tanulok t on ora.tanulo_id = t.id
 	JOIN oktatok ok ON ok.id=t.oktato_id join napok n on n.id = ora.nap_id
 GROUP BY rollup (n.nap,ok.nev)
 order BY n.nap
+
+-- 4. lekérdezés
+
+SELECT 
+  IIF(t.nev IS NULL, 'Összesen', t.nev) AS Név,
+  SUM(k.oradij) AS 'Heti költség'
+FROM orarend o JOIN tanulok t ON o.tanulo_id = t.id
+			   JOIN oktatok ok on ok.id = t.oktato_id 
+               JOIN jarmuvek j on j.jarmu_id = ok.jarmu_id 
+               JOIN kategoriak k on k.kat_id=j.kategoria_id 
+GROUP BY rollup (t.nev) --, t.id
+ORDER BY 'Heti költség' DESC
