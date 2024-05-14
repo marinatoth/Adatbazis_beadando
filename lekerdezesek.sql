@@ -10,7 +10,7 @@ where n.nap = 'Hétfő' and k.rovidites = 'B'
 
 -- 2. lekérdezés
 	
-SELECT IIF(GROUPING_ID(k.rovidites) = 1, 'Végösszeg', CAST(k.rovidites as nvarchar(4))) AS 'Jogosítvány típusa',
+SELECT IIF(GROUPING_ID(k.rovidites) = 1, 'Végösszeg', CAST(k.rovidites AS nvarchar(4))) AS 'Jogosítvány típusa',
        CASE 
          WHEN GROUPING_ID(k.rovidites, o.nev) = 1 THEN 'Részösszeg'
          WHEN GROUPING_ID(k.rovidites, o.nev) = 3 THEN 'Végösszeg'
@@ -59,8 +59,8 @@ SELECT IIF(GROUPING(CASE
         ELSE 'Idős'
        END AS nvarchar(20))) AS 'Korosztály',
        COUNT(*) AS 'Tanulók száma'
-from tanulok
-group by ROLLUP(CASE
+FROM tanulok
+GROUP BY ROLLUP(CASE
 		WHEN DATEDIFF(year, szul_dat, GETDATE()) < 21 THEN 'Serdülő'
         WHEN DATEDIFF(year, szul_dat, GETDATE()) BETWEEN 21 AND 34 THEN 'Fiatal felnőtt'
         WHEN DATEDIFF(year, szul_dat, GETDATE()) BETWEEN 35 AND 59 THEN 'Középkorú'
