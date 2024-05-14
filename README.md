@@ -14,7 +14,7 @@ Innen készültek a lekérdezesek is.
 1. Lekérdezés: Azok a tabulók nevei, akik hétfőn és 'B' kategóriás jogosítvány tanulnak.
 2. Lekérdezés: Hány diákja van egy oktatónak és milyen katergóriát tanítanak.
 3. Lekérdezés: A héten napi bontásban, illetve összesen hány órát szolgáltat az autósiskola.
-4. Lekérdezés:
+4. Lekérdezés: Diákonként ki mennyit fizet az e heti órákért.
 5. Lekérdezés:
 6. Lekérdezés:
 
