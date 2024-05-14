@@ -16,7 +16,7 @@ Innen készültek a lekérdezesek is.
 3. Lekérdezés: A héten napi bontásban, illetve összesen hány órát szolgáltat az autósiskola.
 4. Lekérdezés: Diákonként ki mennyit fizet az e heti órákért.
 5. Lekérdezés:
-6. Lekérdezés:
+6. Lekérdezés: Melyik járműnek mikor lesz a következő műszaki vizsga időpontja, illetve hogy melyik oktatókat érinti ez.
 
 # The End
 Guys ez oriasi lett
