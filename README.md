@@ -15,7 +15,7 @@ Innen készültek a lekérdezesek is.
 2. Lekérdezés: Hány diákja van egy oktatónak és milyen katergóriát tanítanak.
 3. Lekérdezés: A héten napi bontásban, illetve összesen hány órát szolgáltat az autósiskola.
 4. Lekérdezés: Diákonként ki mennyit fizet az e heti órákért.
-5. Lekérdezés:
+5. Lekérdezés: A tanulók száma korosztály szerint csoportosítva.
 6. Lekérdezés: Melyik járműnek mikor lesz a következő műszaki vizsga időpontja, illetve hogy melyik oktatókat érinti ez.
 
 # The End
