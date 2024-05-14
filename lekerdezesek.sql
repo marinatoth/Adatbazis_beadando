@@ -70,7 +70,7 @@ ORDER BY 'Tanulók száma'
 
 -- B változat az 5.-ből, megpróbáltam szebben:
 
-	SELECT IIF(GROUPING(alkorosztaly) = 1, 'Összesen', alkorosztaly) AS 'Korosztály',
+SELECT IIF(GROUPING(alkorosztaly) = 1, 'Összesen', alkorosztaly) AS 'Korosztály',
     COUNT(*) AS 'Tanulók száma'
 FROM 
     (SELECT 
