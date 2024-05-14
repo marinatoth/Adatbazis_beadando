@@ -83,3 +83,18 @@ FROM
     FROM tanulok) AS belso
 GROUP BY ROLLUP(alkorosztaly)
 ORDER BY COUNT(*)
+
+-- 6. lekérdezés
+	
+SELECT 
+    o.nev AS oktato, 
+    k.megnevezes, 
+    j.rendszam, 
+    j.muszaki_vizsga, 
+	(-1)*(DATEDIFF(day, dateadd(day, 730, j.muszaki_vizsga), getdate())) AS 'napok a következő műszaki vizsgáig',
+    j.marka,
+    j.tipus
+FROM jarmuvek j 
+	LEFT JOIN kategoriak k on k.kat_id=j.kategoria_id 
+    LEFT JOIN oktatok o ON j.jarmu_id=o.jarmu_id
+ORDER BY j.muszaki_vizsga
