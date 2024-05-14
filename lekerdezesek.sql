@@ -1,6 +1,6 @@
 -- 1. lekérdezés
 
-select t.nev as 'Tanuló neve'
+select distinct t.nev as 'Tanuló neve'
 from  jarmuvek j join oktatok ok on j.jarmu_id = ok.jarmu_id 
 	join tanulok t on ok.id = t.oktato_id 
 	join orarend ora on ora.tanulo_id= t.id 
