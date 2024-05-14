@@ -67,3 +67,19 @@ GROUP BY ROLLUP(CASE
         ELSE 'Idős'
        END)
 ORDER BY 'Tanulók száma'
+
+-- B változat az 5.-ből, megpróbáltam szebben:
+
+	SELECT IIF(GROUPING(alkorosztaly) = 1, 'Összesen', alkorosztaly) AS 'Korosztály',
+    COUNT(*) AS 'Tanulók száma'
+FROM 
+    (SELECT 
+        CASE
+            WHEN DATEDIFF(year, szul_dat, GETDATE()) < 21 THEN 'Serdülő'
+            WHEN DATEDIFF(year, szul_dat, GETDATE()) BETWEEN 21 AND 34 THEN 'Fiatal felnőtt'
+            WHEN DATEDIFF(year, szul_dat, GETDATE()) BETWEEN 35 AND 59 THEN 'Középkorú'
+            ELSE 'Idős'
+        END AS alkorosztaly
+    FROM tanulok) AS belso
+GROUP BY ROLLUP(alkorosztaly)
+ORDER BY COUNT(*)
