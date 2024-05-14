@@ -70,7 +70,7 @@ ORDER BY 'Tanulók száma'
 
 -- B változat az 5.-ből, megpróbáltam szebben:
 
-	SELECT IIF(GROUPING(alkorosztaly) = 1, 'Összesen', alkorosztaly) AS 'Korosztály',
+	SELECT IIF(GROUPING(korosztaly) = 1, 'Összesen', korosztaly) AS 'Korosztály',
     COUNT(*) AS 'Tanulók száma'
 FROM 
     (SELECT 
@@ -79,7 +79,7 @@ FROM
             WHEN DATEDIFF(year, szul_dat, GETDATE()) BETWEEN 21 AND 34 THEN 'Fiatal felnőtt'
             WHEN DATEDIFF(year, szul_dat, GETDATE()) BETWEEN 35 AND 59 THEN 'Középkorú'
             ELSE 'Idős'
-        END AS alkorosztaly
+        END AS korosztaly
     FROM tanulok) AS belso
-GROUP BY ROLLUP(alkorosztaly)
+GROUP BY ROLLUP(korosztaly)
 ORDER BY COUNT(*)
