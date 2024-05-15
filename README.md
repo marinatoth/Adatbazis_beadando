@@ -1,5 +1,5 @@
 # Adatbazis_beadando
-Csapattagok:
+# Csapattagok:
 - Füzi Blanka
 - Tóth Marina
 - Vinkler Réka
@@ -18,5 +18,3 @@ Innen készültek a lekérdezesek is.
 5. Lekérdezés: A tanulók száma korosztály szerint csoportosítva.
 6. Lekérdezés: Melyik járműnek mikor lesz a következő műszaki vizsga időpontja, illetve hogy melyik oktatókat érinti ez.
 
-# The End
-Guys ez oriasi lett
