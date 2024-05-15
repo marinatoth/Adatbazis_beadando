@@ -46,30 +46,6 @@ ORDER BY 'Heti költség' DESC
 
 -- 5. lekérdezés
 
-SELECT IIF(GROUPING(CASE
-		WHEN DATEDIFF(year, szul_dat, GETDATE()) < 21 THEN 'Serdülő'
-        WHEN DATEDIFF(year, szul_dat, GETDATE()) BETWEEN 21 AND 34 THEN 'Fiatal felnőtt'
-        WHEN DATEDIFF(year, szul_dat, GETDATE()) BETWEEN 35 AND 59 THEN 'Középkorú'
-        ELSE 'Idős'
-       END) = 1, 'Összesen', 
-       CAST(CASE
-		WHEN DATEDIFF(year, szul_dat, GETDATE()) < 21 THEN 'Serdülő'
-        WHEN DATEDIFF(year, szul_dat, GETDATE()) BETWEEN 21 AND 34 THEN 'Fiatal felnőtt'
-        WHEN DATEDIFF(year, szul_dat, GETDATE()) BETWEEN 35 AND 59 THEN 'Középkorú'
-        ELSE 'Idős'
-       END AS nvarchar(20))) AS 'Korosztály',
-       COUNT(*) AS 'Tanulók száma'
-FROM tanulok
-GROUP BY ROLLUP(CASE
-		WHEN DATEDIFF(year, szul_dat, GETDATE()) < 21 THEN 'Serdülő'
-        WHEN DATEDIFF(year, szul_dat, GETDATE()) BETWEEN 21 AND 34 THEN 'Fiatal felnőtt'
-        WHEN DATEDIFF(year, szul_dat, GETDATE()) BETWEEN 35 AND 59 THEN 'Középkorú'
-        ELSE 'Idős'
-       END)
-ORDER BY 'Tanulók száma'
-
--- B változat az 5.-ből, megpróbáltam szebben:
-
 SELECT IIF(GROUPING(alkorosztaly) = 1, 'Összesen', alkorosztaly) AS 'Korosztály',
     COUNT(*) AS 'Tanulók száma'
 FROM 
