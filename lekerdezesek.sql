@@ -1,12 +1,12 @@
 -- 1. lekérdezés
 
-select distinct t.nev as 'Tanuló neve'
-from  jarmuvek j join oktatok ok on j.jarmu_id = ok.jarmu_id 
-	join tanulok t on ok.id = t.oktato_id 
-	join orarend ora on ora.tanulo_id= t.id 
-    	join kategoriak k on k.kat_id=j.kategoria_id 
-    	join napok n on n.id=ora.nap_id
-where n.nap = 'Hétfő' and k.rovidites = 'B'
+SELECT DISTINCT t.nev AS 'Tanuló neve'
+FROM  jarmuvek j JOIN oktatok ok ON j.jarmu_id = ok.jarmu_id 
+	JOIN tanulok t ON ok.id = t.oktato_id 
+	JOIN orarend ora ON ora.tanulo_id= t.id 
+    	JOIN kategoriak k ON k.kat_id=j.kategoria_id 
+    	JOIN napok n ON n.id=ora.nap_id
+WHERE n.nap = 'Hétfő' AND k.rovidites = 'B'
 
 -- 2. lekérdezés
 	
@@ -24,13 +24,13 @@ GROUP BY ROLLUP(k.rovidites, o.nev)
 
 -- 3. lekérdezés
 
-select  iif(n.nap is null, 'Összesen', n.nap) as 'Nap',
-        iif(ok.nev is null, iif(n.nap is null, 'Heti  összes','Napi összes'), ok.nev) as 'Oktató neve',
-		count(*) as 'Órák száma'
-from orarend ora JOIN tanulok t on ora.tanulo_id = t.id
-	JOIN oktatok ok ON ok.id=t.oktato_id join napok n on n.id = ora.nap_id
-GROUP BY rollup (n.nap,ok.nev)
-order BY n.nap
+SELECT iif(n.nap IS NULL, 'Összesen', n.nap) AS 'Nap',
+        iif(ok.nev IS NULL, iif(n.nap IS NULL, 'Heti  összes','Napi összes'), ok.nev) AS 'Oktató neve',
+		COUNT(*) AS 'Órák száma'
+FROM orarend ora JOIN tanulok t ON ora.tanulo_id = t.id
+	JOIN oktatok ok ON ok.id=t.oktato_id JOIN napok n ON n.id = ora.nap_id
+GROUP BY ROLLUP(n.nap,ok.nev)
+ORDER BY n.nap
 
 -- 4. lekérdezés
 
